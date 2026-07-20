@@ -95,6 +95,11 @@
   animation: bubble-pop 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
+.bubble__body {
+  overflow: hidden;
+  max-width: 100%;
+}
+
 .bubble__text {
   margin: 0;
   font-family: 'DM Sans', system-ui, sans-serif;
@@ -102,6 +107,17 @@
   font-weight: 500;
   line-height: 1.4;
   color: var(--bubble-ink);
+  min-height: 1.4em;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  transition: letter-spacing 0.2s ease;
+}
+
+.bubble__text--scrambling {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.01em;
+  color: color-mix(in srgb, var(--bubble-ink) 72%, var(--brand));
 }
 
 .speak-btn {
@@ -122,9 +138,21 @@
     filter 0.12s ease;
 }
 
+.speak-btn:disabled {
+  cursor: wait;
+  opacity: 0.72;
+  transform: none;
+  filter: none;
+}
+
 .speak-btn:hover {
   transform: translateY(-2px);
   filter: brightness(1.06);
+}
+
+.speak-btn:disabled:hover {
+  transform: none;
+  filter: none;
 }
 
 .speak-btn:active {

@@ -9,7 +9,14 @@
       role="status"
       aria-live="polite"
     >
-      <p class="bubble__text">{{ phrase() }}</p>
+      <div class="bubble__body">
+        <p
+          class="bubble__text"
+          [class.bubble__text--scrambling]="isScrambling()"
+        >
+          {{ displayText() }}
+        </p>
+      </div>
     </div>
 
     <img
@@ -21,7 +28,12 @@
     />
   </div>
 
-  <button type="button" class="speak-btn" (click)="saySomething()">
+  <button
+    type="button"
+    class="speak-btn"
+    [disabled]="isScrambling()"
+    (click)="saySomething()"
+  >
     Say something
   </button>
 </main>
