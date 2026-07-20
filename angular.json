@@ -33,6 +33,7 @@
           },
           "configurations": {
             "production": {
+              "baseHref": "/josh-a-nator/",
               "budgets": [
                 {
                   "type": "initial",
