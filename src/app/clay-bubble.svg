@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 160" preserveAspectRatio="none">
+  <defs>
+    <linearGradient id="clay" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f4e8d8" />
+      <stop offset="0.46" stop-color="#e8d5bc" />
+      <stop offset="0.78" stop-color="#d9bea0" />
+      <stop offset="1" stop-color="#c7a680" />
+    </linearGradient>
+    <radialGradient id="highlight" cx="0.18" cy="0.1" r="0.68">
+      <stop offset="0" stop-color="#fff9ef" stop-opacity="0.62" />
+      <stop offset="0.62" stop-color="#fff9ef" stop-opacity="0.08" />
+      <stop offset="1" stop-color="#fff9ef" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="shade" cx="0.84" cy="0.92" r="0.72">
+      <stop offset="0" stop-color="#765033" stop-opacity="0.26" />
+      <stop offset="0.7" stop-color="#765033" stop-opacity="0.05" />
+      <stop offset="1" stop-color="#765033" stop-opacity="0" />
+    </radialGradient>
+    <filter id="handmade" x="-4%" y="-5%" width="108%" height="112%" color-interpolation-filters="sRGB">
+      <feTurbulence
+        type="fractalNoise"
+        baseFrequency="0.018 0.045"
+        numOctaves="2"
+        seed="17"
+        result="shapeNoise"
+      />
+      <feDisplacementMap
+        in="SourceGraphic"
+        in2="shapeNoise"
+        scale="1.35"
+        xChannelSelector="R"
+        yChannelSelector="G"
+        result="modeledShape"
+      />
+      <feTurbulence
+        type="fractalNoise"
+        baseFrequency="0.16"
+        numOctaves="3"
+        seed="9"
+        result="surfaceNoise"
+      />
+      <feColorMatrix
+        in="surfaceNoise"
+        type="matrix"
+        values="0.26 0 0 0 0.48
+                0 0.22 0 0 0.40
+                0 0 0.18 0 0.30
+                0 0 0 0.1 0"
+        result="warmGrain"
+      />
+      <feComposite in="warmGrain" in2="SourceAlpha" operator="in" result="clippedGrain" />
+      <feBlend in="modeledShape" in2="clippedGrain" mode="soft-light" />
+    </filter>
+  </defs>
+  <g filter="url(#handmade)">
+    <path
+      d="M29 3C18 2 7 10 4 23C1 47 4 96 3 129C3 145 15 158 30 158H231C247 158 256 145 257 127C259 98 257 51 258 28C258 12 246 3 231 4C176 2 85 5 29 3Z"
+      fill="url(#clay)"
+      stroke="#fff4e7"
+      stroke-opacity="0.42"
+      stroke-width="1.5"
+    />
+    <path
+      d="M29 3C18 2 7 10 4 23C1 47 4 96 3 129C3 145 15 158 30 158H231C247 158 256 145 257 127C259 98 257 51 258 28C258 12 246 3 231 4C176 2 85 5 29 3Z"
+      fill="url(#highlight)"
+    />
+    <path
+      d="M29 3C18 2 7 10 4 23C1 47 4 96 3 129C3 145 15 158 30 158H231C247 158 256 145 257 127C259 98 257 51 258 28C258 12 246 3 231 4C176 2 85 5 29 3Z"
+      fill="url(#shade)"
+    />
+  </g>
+</svg>
